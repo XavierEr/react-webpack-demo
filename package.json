@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/XavierEr/react-webpack-demo/issues"
   },
-  "homepage": "https://github.com/XavierEr/react-webpack-demo#readme"
+  "homepage": "https://github.com/XavierEr/react-webpack-demo#readme",
+  "devDependencies": {
+    "webpack": "^2.2.0"
+  }
 }
