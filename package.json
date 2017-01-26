@@ -18,5 +18,9 @@
   "homepage": "https://github.com/XavierEr/react-webpack-demo#readme",
   "devDependencies": {
     "webpack": "^2.2.0"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
   }
 }
