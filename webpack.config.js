@@ -4,21 +4,21 @@ const webpack = require('webpack');
 const config = {
     entry: {
         app: [
-            // 'react-hot-loader/patch',
+            'react-hot-loader/patch',
             // activate HMR for React
 
-            // 'webpack-dev-server/client',
+            'webpack-dev-server/client?http://localhost:10000',
             // bundle the client for webpack-dev-server
             // and connect to the provided endpoint
 
-            // 'webpack/hot/only-dev-server',
+            'webpack/hot/only-dev-server',
             // bundle the client for hot reloading
             // only- means to only hot reload for successful updates
 
             './index.js'
             // the entry point of our app
         ],
-        // vendor: ['moment']
+        vendor: ['moment']
     },
 
     output: {
@@ -96,10 +96,6 @@ const config = {
 
         new webpack.NamedModulesPlugin(),
         // prints more readable module names in the browser console on HMR updates
-
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     names: ['vendor', 'manifest'] // Specify the common bundle's name.
-        // })
     ]
 }
 
