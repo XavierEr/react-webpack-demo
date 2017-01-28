@@ -1,5 +1,7 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     entry: {
@@ -11,11 +13,11 @@ const config = {
             // bundle the client for webpack-dev-server
             // and connect to the provided endpoint
 
-            'webpack/hot/only-dev-server',
+            // 'webpack/hot/only-dev-server',
             // bundle the client for hot reloading
             // only- means to only hot reload for successful updates
 
-            './index.js'
+            './src/index.js'
             // the entry point of our app
         ],
         vendor: ['moment']
@@ -31,7 +33,7 @@ const config = {
         // necessary for HMR to know where to load the hot update chunks
     },
 
-    context: resolve(__dirname, 'src'),
+    // context: resolve(__dirname, 'src'),
 
     devtool: 'inline-source-map',
 
@@ -59,43 +61,42 @@ const config = {
                 ],
                 exclude: /node_modules/
             },
-            // {
-            //     test: /\.(css|less)$/,
-            //     loader: ExtractTextPlugin.extract({
-            //         fallbackLoader: "style-loader",
-            //         loader: [
-            //             { loader: 'css-loader', options: { importLoaders: 1 } },
-            //             { loader: 'less-loader' }
-            //         ]
-            //     })
-            // },
-            // {
-            //     test: /\.(png|jpg|gif)(\?v=\d+\.\d+\.\d+)?$/,
-            //     use: [
-            //         { loader: 'url-loader', options: { limit: 100000 } }
-            //     ]
-            // },
-            // {
-            //     test: /\.(eot|com|json|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-            //     use: [
-            //         { loader: 'url-loader', options: { limit: 100000, mimetype: 'application/octet-stream' } }
-            //     ]
-            // },
-            // {
-            //     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-            //     use: [
-            //         { loader: 'url-loader', options: { limit: 100000, mimetype: 'image/svg+xml' } }
-            //     ]
-            // }
+            {
+                test: /\.(css|less)$/,
+                loader: ExtractTextPlugin.extract({
+                    fallbackLoader: "style-loader",
+                    loader: [
+                        { loader: 'css-loader', options: { importLoaders: 1 } },
+                        { loader: 'less-loader' }
+                    ]
+                })
+            },
+            {
+                test: /\.(png|jpg|gif)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    { loader: 'url-loader', options: { limit: 100000 } }
+                ]
+            },
+            {
+                test: /\.(eot|com|json|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    { loader: 'url-loader', options: { limit: 100000, mimetype: 'application/octet-stream' } }
+                ]
+            },
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    { loader: 'url-loader', options: { limit: 100000, mimetype: 'image/svg+xml' } }
+                ]
+            }
         ]
     },
 
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        // enable HMR globally
-
-        new webpack.NamedModulesPlugin(),
-        // prints more readable module names in the browser console on HMR updates
+        new webpack.HotModuleReplacementPlugin(), // enable HMR globally
+        new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
+        new ExtractTextPlugin({ filename: 'styles.css', disable: false, allChunks: true }),
+        new HtmlWebpackPlugin({ inject: true, template: 'public/index.html' })
     ]
 }
 
