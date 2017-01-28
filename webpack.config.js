@@ -20,7 +20,7 @@ const config = {
             './src/index.js'
             // the entry point of our app
         ],
-        vendor: ['moment']
+        vendor: ['react-hot-loader/patch', 'react', 'react-dom', 'moment']
     },
 
     output: {
@@ -32,8 +32,6 @@ const config = {
         publicPath: '/'
         // necessary for HMR to know where to load the hot update chunks
     },
-
-    // context: resolve(__dirname, 'src'),
 
     devtool: 'inline-source-map',
 
@@ -96,6 +94,7 @@ const config = {
         new webpack.HotModuleReplacementPlugin(), // enable HMR globally
         new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
         new ExtractTextPlugin({ filename: 'styles.css', disable: false, allChunks: true }),
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', minChunks: Infinity }),
         new HtmlWebpackPlugin({ inject: true, template: 'public/index.html' })
     ]
 }
