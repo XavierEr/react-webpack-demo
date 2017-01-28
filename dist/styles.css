@@ -3381,7 +3381,7 @@ body.full-height-layout #page-wrapper {
   min-height: auto;
 }
 body.boxed-layout {
-  background: url(/ea2316224d45899c59bc285ba09dd920.png);
+  background: url(/distea2316224d45899c59bc285ba09dd920.png);
 }
 body.boxed-layout #wrapper {
   background-color: #2f4050;
@@ -6851,10 +6851,10 @@ body.landing-page {
   width: 100%;
 }
 .landing-page .header-back.one {
-  background: url(/1faaad354c7843acb688e5c2b14e67ba.jpg) 50% 0 no-repeat;
+  background: url(/dist1faaad354c7843acb688e5c2b14e67ba.jpg) 50% 0 no-repeat;
 }
 .landing-page .header-back.two {
-  background: url(/f2f2de96e14a40255e93ab5fab29916b.jpg) 50% 0 no-repeat;
+  background: url(/distf2f2de96e14a40255e93ab5fab29916b.jpg) 50% 0 no-repeat;
 }
 .landing-page .carousel {
   height: 470px;
@@ -7055,7 +7055,7 @@ body.landing-page {
   padding-top: 80px;
   padding-bottom: 90px;
   background-color: #1ab394;
-  background-image: url(/c5a509acee8aab3a1f62e16ea1204ffc.png);
+  background-image: url(/distc5a509acee8aab3a1f62e16ea1204ffc.png);
 }
 .landing-page .big-icon {
   font-size: 56px !important;
