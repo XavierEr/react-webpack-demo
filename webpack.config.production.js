@@ -14,7 +14,7 @@ const config = {
     output: {
         filename: '[name].bundle.js',
         path: resolve(__dirname, 'dist'),
-        publicPath: '/dist'
+        publicPath: '/'
     },
 
     devtool: 'source-map',

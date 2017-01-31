@@ -13,7 +13,7 @@ const config = {
             // bundle the client for webpack-dev-server
             // and connect to the provided endpoint
 
-            // 'webpack/hot/only-dev-server',
+            'webpack/hot/only-dev-server',
             // bundle the client for hot reloading
             // only- means to only hot reload for successful updates
 
@@ -27,7 +27,7 @@ const config = {
         filename: '[name].bundle.js',
         // the output bundle
 
-        path: resolve(__dirname, 'dist'),
+        path: resolve(__dirname, 'public'),
 
         publicPath: '/'
         // necessary for HMR to know where to load the hot update chunks
@@ -39,7 +39,7 @@ const config = {
         hot: true,
         // enable HMR on the server
 
-        contentBase: resolve(__dirname, 'dist'),
+        contentBase: resolve(__dirname, 'public'),
         // match the output path
 
         publicPath: '/',
