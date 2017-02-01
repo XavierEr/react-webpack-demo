@@ -20,7 +20,7 @@ const config = {
             './src/index.js'
             // the entry point of our app
         ],
-        vendor: ['react-hot-loader/patch', 'react', 'react-dom', 'moment']
+        vendor: ['react-hot-loader/patch', 'react', 'react-dom', 'react-router', 'moment']
     },
 
     output: {

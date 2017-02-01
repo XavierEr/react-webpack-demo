@@ -8,7 +8,7 @@ const config = {
         app: [
             './src/index.js'
         ],
-        vendor: ['react', 'react-dom', 'moment']
+        vendor: ['react', 'react-dom', 'react-router', 'moment']
     },
 
     output: {
