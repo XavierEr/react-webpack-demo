@@ -6,11 +6,64 @@ class LandingPage extends Component {
         body.classList.toggle('landing-page', true);
     }
 
-    componentWillUnmount(){
+    componentDidMount() {
+        // Highlight the top nav as scrolling
+        $('body').scrollspy({
+            target: '.navbar-fixed-top',
+            offset: 80
+        });
+
+        // Page scrolling feature
+        $('a.page-scroll').bind('click', function (event) {
+            var link = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(link.attr('href')).offset().top - 50
+            }, 500);
+
+            event.preventDefault();
+
+            if ($('body').hasClass('body-small')) {
+                $('#navbar').collapse('toggle');
+            }
+        });
+
+        this.animatedHeader();
+    }
+
+    componentWillUnmount() {
         const body = document.getElementsByTagName('body')[0];
         body.classList.toggle('landing-page', false);
     }
-    
+
+    animatedHeader() {
+        var docElem = document.documentElement,
+            header = document.querySelector('.navbar-default'),
+            didScroll = false,
+            changeHeaderOn = 20;
+
+        function scrollY() {
+            return window.pageYOffset || docElem.scrollTop;
+        }
+
+        function scrollPage() {
+            var sy = scrollY();
+            if (sy >= changeHeaderOn) {
+                $(header).addClass('navbar-scroll')
+            }
+            else {
+                $(header).removeClass('navbar-scroll')
+            }
+            didScroll = false;
+        }
+
+        window.addEventListener('scroll', function (event) {
+            if (!didScroll) {
+                didScroll = true;
+                setTimeout(scrollPage, 250);
+            }
+        }, false);
+    }
+
     render() {
         var marginTopStyle = {
             marginTop: 0

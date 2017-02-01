@@ -20,7 +20,7 @@ const config = {
             './src/index.js'
             // the entry point of our app
         ],
-        vendor: ['react-hot-loader/patch', 'react', 'react-dom', 'react-router', 'moment']
+        vendor: ['react-hot-loader/patch', 'react', 'react-dom', 'react-router', 'jquery', 'bootstrap', 'moment']
     },
 
     output: {
@@ -93,6 +93,7 @@ const config = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(), // enable HMR globally
         new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
+        new webpack.ProvidePlugin({ '$': 'jquery', 'jQuery': 'jquery', 'window.jQuery': 'jquery', 'window.$': 'jquery' }),
         new ExtractTextPlugin({ filename: 'styles.css', disable: false, allChunks: true }),
         new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', minChunks: Infinity }),
         new HtmlWebpackPlugin({ inject: true, template: 'public/index.html' })
